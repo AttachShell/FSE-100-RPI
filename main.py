@@ -71,14 +71,14 @@ def loop():
         print(ulso_distance, 'cm')  # Print distance measurement
 
         if ulso_distance < 5:  # If the object is within 5 cm, buzz continuously
-            buzzer_on()
+            # buzzer_on()
             vibration_on()
         elif ulso_distance < 30:  # If within 30 cm, beep with decreasing interval
-            beep_interval = (ulso_distance - 5) / 50.0  # Adjust beep interval
-            beep(beep_interval)
+           # beep_interval = (ulso_distance - 5) / 50.0  # Adjust beep interval
+           # beep(beep_interval)
             vibration_on()
         else:
-            buzzer_off()  # Turn off buzzer if object is far
+           # buzzer_off()  # Turn off buzzer if object is far
             vibration_off()
         
         time.sleep(0.3)
