@@ -9,7 +9,7 @@ SONIC_ECHO = 12
 BUZZ_PIN = 13
 
 # Vibration Motor
-VIBRATION_MOTOR = 23
+VIBRATION_MOTOR = 16
 
 # Initialization function
 def setup():
