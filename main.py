@@ -74,8 +74,9 @@ def loop():
             buzzer_on()
             vibration_on()
         elif ulso_distance < 30:  # If within 30 cm, beep with decreasing interval
-            beep_interval = (dis - 5) / 50.0  # Adjust beep interval
+            beep_interval = (ulso_distance - 5) / 50.0  # Adjust beep interval
             beep(beep_interval)
+            vibration_on()
         else:
             buzzer_off()  # Turn off buzzer if object is far
             vibration_off()
