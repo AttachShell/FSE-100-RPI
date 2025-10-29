@@ -36,9 +36,11 @@ def loop():
            # beep_interval = (ulso_distance - 5) / 50.0  # Adjust beep interval
            # beep(beep_interval)
             vibration.vibration_on(VIBRATION_MOTOR)
+            buzzer.buzzer_off(BUZZ_PIN)
         else:
            # buzzer_off()  # Turn off buzzer if object is far
             vibration.vibration_off(VIBRATION_MOTOR)
+            buzzer.buzzer_off(BUZZ_PIN)
         
         time.sleep(0.3)
 
