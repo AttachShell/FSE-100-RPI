@@ -1,3 +1,6 @@
+import RPi.GPIO as GPIO
+import time
+
 def ultrasonic_init(trig_pin, echo_pin):
     GPIO.setup(trig_pin, GPIO.OUT)
     GPIO.setup(echo_pin, GPIO.IN)

@@ -1,3 +1,6 @@
+import RPi.GPIO as GPIO
+import time
+
 def vibration_motor_init(pin):
     GPIO.setup(pin, GPIO.OUT)
     GPIO.output(pin, GPIO.HIGH)
