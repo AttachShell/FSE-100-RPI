@@ -31,7 +31,7 @@ def loop():
 
         if ulso_distance < 10:  # If the object is within 5 cm, buzz continuously
             # buzzer_on()
-            buzzer_on(BUZZ_PIN)
+            buzzer.buzzer_on(BUZZ_PIN)
         elif ulso_distance < 30:  # If within 30 cm, beep with decreasing interval
            # beep_interval = (ulso_distance - 5) / 50.0  # Adjust beep interval
            # beep(beep_interval)
