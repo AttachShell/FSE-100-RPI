@@ -15,71 +15,26 @@ VIBRATION_MOTOR = 16
 def setup():
     GPIO.setmode(GPIO.BOARD)
 
-    GPIO.setup(SONIC_TRIG, GPIO.OUT)
-    GPIO.setup(SONIC_ECHO, GPIO.IN)
-
-    GPIO.setup(BUZZ_PIN, GPIO.OUT)
-    GPIO.output(BUZZ_PIN, GPIO.HIGH)
-
-    # Setup for vibration motor
-    GPIO.setup(VIBRATION_MOTOR, GPIO.OUT)
-    GPIO.output(VIBRATION_MOTOR, GPIO.LOW)  # Turn off the vibration motor initially
-
-# Ultrasonic Stufs
-def ultrasonic_distance():
-    GPIO.output(SONIC_TRIG, 0)
-    time.sleep(0.000002)
-    GPIO.output(SONIC_TRIG, 1)
-    time.sleep(0.00001)
-    GPIO.output(SONIC_TRIG, 0)
-
-    while GPIO.input(SONIC_ECHO) == 0:
-        pass
-    time1 = time.time()
-    
-    while GPIO.input(SONIC_ECHO) == 1:
-        pass
-    time2 = time.time()
-
-    duration = time2 - time1
-    return (duration * 340 / 2) * 100  # Convert to centimeters
-
-# Buzzer Stufs
-def buzzer_on():
-    GPIO.output(BUZZ_PIN, GPIO.LOW)  # Turns the buzzer ON
-
-def buzzer_off():
-    GPIO.output(BUZZ_PIN, GPIO.HIGH)  # Turns the buzzer OFF
-
-def beep(duration):
-    buzzer_on()
-    time.sleep(duration)
-    buzzer_off()
-    time.sleep(duration)
-
-# Vibration Motorz Stufs
-def vibration_on():
-    GPIO.output(VIBRATION_MOTOR, GPIO.HIGH)
-
-def vibration_off():
-    GPIO.output(VIBRATION_MOTOR, GPIO.LOW)
+    ultrasonic_init(SONIC_TRIG, SONIC_ECHO) 
+    buzzer_init(BUZZ_PIN)
+    vibration_motor_init(VIBRATION_MOTOR)
 
 # Runtime Loop
 def loop():
     while True:
-        ulso_distance = ultrasonic_distance()
+        ulso_distance = ultrasonic_distance(SONIC_TRIG, SONIC_ECHO)
         print(ulso_distance, 'cm')  # Print distance measurement
 
-        if ulso_distance < 5:  # If the object is within 5 cm, buzz continuously
+        if ulso_distance < 10:  # If the object is within 5 cm, buzz continuously
             # buzzer_on()
-            vibration_on()
+            buzzer_on(BUZZ_PIN)
         elif ulso_distance < 30:  # If within 30 cm, beep with decreasing interval
            # beep_interval = (ulso_distance - 5) / 50.0  # Adjust beep interval
            # beep(beep_interval)
-            vibration_on()
+            vibration_on(VIBRATION_MOTOR)
         else:
            # buzzer_off()  # Turn off buzzer if object is far
-            vibration_off()
+            vibration_off(VIBRATION_MOTOR)
         
         time.sleep(0.3)
 
