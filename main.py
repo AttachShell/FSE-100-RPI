@@ -1,6 +1,10 @@
 import RPi.GPIO as GPIO
 import time
 
+import ultrasonic
+import vibration_motor
+import buzzer
+
 #Ultra Sonic Sensor
 SONIC_TRIG = 11
 SONIC_ECHO = 12
@@ -15,7 +19,7 @@ VIBRATION_MOTOR = 16
 def setup():
     GPIO.setmode(GPIO.BOARD)
 
-    ultrasonic_init(SONIC_TRIG, SONIC_ECHO) 
+    ultrasonic.ultrasonic_init(SONIC_TRIG, SONIC_ECHO) 
     buzzer_init(BUZZ_PIN)
     vibration_motor_init(VIBRATION_MOTOR)
 
