@@ -5,6 +5,8 @@ import ultrasonic
 import vibration_motor as vibration
 import buzzer
 
+# These pin numbers are based on the physical locals on the board
+
 #Ultra Sonic Sensor
 SONIC_TRIG = 11
 SONIC_ECHO = 12
@@ -15,6 +17,9 @@ BUZZ_PIN = 13
 # Vibration Motor
 VIBRATION_MOTOR = 16
 
+# Button
+BUTTON_PIN = 12
+
 # Initialization function
 def setup():
     GPIO.setmode(GPIO.BOARD)
@@ -22,6 +27,7 @@ def setup():
     ultrasonic.ultrasonic_init(SONIC_TRIG, SONIC_ECHO) 
     buzzer.buzzer_init(BUZZ_PIN)
     vibration.vibration_motor_init(VIBRATION_MOTOR)
+    button.init(BUTTON_PIN)
 
 # Runtime Loop
 def loop():
