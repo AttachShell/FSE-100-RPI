@@ -4,6 +4,7 @@ import time
 import ultrasonic
 import vibration_motor as vibration
 import buzzer
+import button
 
 # These pin numbers are based on the physical locals on the board
 
