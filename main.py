@@ -35,7 +35,7 @@ def loop():
     while True:
         ulso_distance = ultrasonic.ultrasonic_distance(SONIC_TRIG, SONIC_ECHO)
         print(ulso_distance, 'cm')  # Print distance measurement
-
+        print(GPIO.input(BUTTON_PIN), 'buttuon')
         if ulso_distance < 10:  # If the object is within 5 cm, buzz continuously
             # buzzer_on()
             buzzer.buzzer_on(BUZZ_PIN)
