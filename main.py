@@ -19,7 +19,7 @@ BUZZ_PIN = 13
 VIBRATION_MOTOR = 16
 
 # Button
-BUTTON_PIN = 12
+BUTTON_PIN = 15
 
 # Initialization function
 def setup():
