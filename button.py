@@ -5,5 +5,5 @@ def init(pin):
     GPIO.add_event_detect(pin, GPIO.BOTH, callback=detect, bouncetime=200)
 
 def detect(change):
-    print("button: " + change + ", " + GPIO.input(15))
+    print(change)
 
