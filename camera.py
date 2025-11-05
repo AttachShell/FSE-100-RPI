@@ -5,11 +5,11 @@ import os
 
 # Create the payload for the API request
 IMG_PATH = 'captured_image.jpg'
-
+client = OpenAI(api_key=os.getenv('OPENAI_API_KEY'))
 
 def init():
     # Set OpenAI Key
-    # openai.api_key = os.getenv('OPENAI_API_KEY')
+    openai.api_key = os.getenv('OPENAI_API_KEY')
     print("INITIALIZING...")
 
 def run():
@@ -27,15 +27,14 @@ def run():
       }
     ]
     
-    response = openai.chat.completions.create(
-        model="gpt-4o-mini",
+    response = client.response.create(
+        model="gpt-5-nano",
         messages=message,
         max_tokens=300,
     )
 
     # Output the result
     print(response.choices[0].message.content)
-
 
 # Encode the image to Base64
 def encode_image(image_path):
