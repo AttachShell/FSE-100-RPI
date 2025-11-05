@@ -25,7 +25,13 @@ def run():
     # Capture the image using fswebcam
     subprocess.run(['fswebcam', '-r', '1280x720', '--no-banner', IMG_PATH])
     base64_image = encode_image(IMG_PATH)
-    response = get_response(base64_image)
+    
+    response = openai.chat.completions.create(
+        model="gpt-4o-mini",
+        messages=MESSAGE,
+        max_tokens=300,
+    )
+
     # Output the result
     print(response.choices[0].message.content)
 
@@ -35,12 +41,3 @@ def encode_image(image_path):
     with open(IMG_PATH, 'rb') as image_file:
         return base64.b64encode(image_file.read()).decode('utf-8')
 
-
-def get_response(base64_image):
-    # Send the request to OpenAI's API
-    response = openai.chat.completions.create(
-        model="gpt-4o-mini",
-        messages=MESSAGE,
-        max_tokens=300,
-    )
-    return response
