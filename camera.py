@@ -4,16 +4,6 @@ import openai
 import os
 
 # Create the payload for the API request
-MESSAGE = [
-    {
-        "role": "user",
-        "content": [
-            {"type": "text", "text": "How far is the closest object in this image?"},
-            {"type": "image_url", "image_url": {"url": f"data:image/jpeg;base64,{base64_image}"}},
-        ],
-    }
-]
-
 IMG_PATH = 'captured_image.jpg'
 
 
@@ -25,10 +15,20 @@ def run():
     # Capture the image using fswebcam
     subprocess.run(['fswebcam', '-r', '1280x720', '--no-banner', IMG_PATH])
     base64_image = encode_image(IMG_PATH)
+
+    message = [
+    {
+        "role": "user",
+        "content": [
+            {"type": "text", "text": "How far is the closest object in this image?"},
+            {"type": "image_url", "image_url": {"url": f"data:image/jpeg;base64,{base64_image}"}},
+        ],
+      }
+    ]
     
     response = openai.chat.completions.create(
         model="gpt-4o-mini",
-        messages=MESSAGE,
+        messages=message,
         max_tokens=300,
     )
 
