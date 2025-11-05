@@ -9,7 +9,7 @@ IMG_PATH = 'captured_image.jpg'
 
 def init():
     # Set OpenAI Key
-    openai.api_key = os.getenv('OPENAI_API_KEY')
+    # openai.api_key = os.getenv('OPENAI_API_KEY')
 
 def run():
     # Capture the image using fswebcam
