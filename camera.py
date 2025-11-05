@@ -5,11 +5,11 @@ import os
 
 # Create the payload for the API request
 IMG_PATH = 'captured_image.jpg'
-client = openai.OpenAI(api_key=os.getenv('OPENAI_API_KEY'))
+client = openai.OpenAI(api_key=os.getenv('API_KEY'))
 
 def init():
     # Set OpenAI Key
-    openai.api_key = os.getenv('OPENAI_API_KEY')
+    # openai.api_key = os.getenv('OPENAI_API_KEY')
     print("INITIALIZING...")
 
 def run():
