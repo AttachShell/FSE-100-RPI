@@ -1,11 +1,11 @@
 import subprocess
 import base64
-import openai
+from openai import OpenAI
 import os
 
 # Create the payload for the API request
 IMG_PATH = 'captured_image.jpg'
-client = openai.OpenAI(api_key=os.getenv('OPENAI_API_KEY'))
+client = OpenAI(api_key=os.getenv('OPENAI_API_KEY'))
 
 def init():
     # Set OpenAI Key

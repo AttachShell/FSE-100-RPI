@@ -7,6 +7,9 @@ import buzzer
 import button
 import camera
 
+from dotenv import load_env
+load_env()
+
 # These pin numbers are based on the physical locals on the board
 
 #Ultra Sonic Sensor
