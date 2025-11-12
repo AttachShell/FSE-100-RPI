@@ -3,6 +3,9 @@ import base64
 from openai import OpenAI
 import os
 
+from dotenv import load_env
+load_env()
+
 # Create the payload for the API request
 IMG_PATH = 'captured_image.jpg'
 client = OpenAI(api_key=os.getenv('OPENAI_API_KEY'))
