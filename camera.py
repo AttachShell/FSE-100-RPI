@@ -3,8 +3,8 @@ import base64
 from openai import OpenAI
 import os
 
-from dotenv import load_env
-load_env()
+from dotenv import load_dotenv
+load_dotenv()
 
 # Create the payload for the API request
 IMG_PATH = 'captured_image.jpg'
