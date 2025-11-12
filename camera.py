@@ -30,7 +30,7 @@ def run():
       }
     ]
     
-    response = client.responses.create(
+    response = client.chat.completions.create(
         model="gpt-5-nano",
         messages=message,
         max_tokens=300,
