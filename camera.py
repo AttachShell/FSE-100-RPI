@@ -33,7 +33,7 @@ def run():
     response = client.chat.completions.create(
         model="gpt-5-nano",
         messages=message,
-        max_tokens=300,
+        max_competion_tokens=300,
     )
 
     # Output the result
