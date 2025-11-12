@@ -28,7 +28,7 @@ def run():
     {
         "role": "user",
         "content": [
-            {"type": "text", "text": "How far is the closest object in this image?"},
+            {"type": "text", "text": "How far is the closest object in this image in cm?"},
             {"type": "image_url", "image_url": {"url": f"data:image/jpeg;base64,{base64_image}"}},
         ],
       }
