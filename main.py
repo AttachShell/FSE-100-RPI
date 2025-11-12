@@ -4,7 +4,6 @@ import time
 import ultrasonic
 import vibration_motor as vibration
 import buzzer
-import button
 import camera
 
 # These pin numbers are based on the physical locals on the board
@@ -29,8 +28,7 @@ def setup():
     ultrasonic.ultrasonic_init(SONIC_TRIG, SONIC_ECHO) 
     buzzer.buzzer_init(BUZZ_PIN)
     vibration.vibration_motor_init(VIBRATION_MOTOR)
-    camera.init()
-    button.init(BUTTON_PIN, camera.run())
+    camera.init(BUTTON_PIN)
 
 # Runtime Loop
 def loop():

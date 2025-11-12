@@ -2,18 +2,22 @@ import subprocess
 import base64
 from openai import OpenAI
 import os
-
+import RPi.GPIO as GPIO
 from dotenv import load_dotenv
+
 load_dotenv()
 
 # Create the payload for the API request
 IMG_PATH = 'captured_image.jpg'
 client = OpenAI(api_key=os.getenv('OPENAI_API_KEY'))
 
-def init():
-    # Set OpenAI Key
-    # openai.api_key = os.getenv('OPENAI_API_KEY')
+def init(pin):
+    GPIO.setup(pin, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+    GPIO.add_event_detect(pin, GPIO.BOTH, callback=callback, bouncetime=200)
     print("INITIALIZING...")
+
+def callback(chn):
+    run()
 
 def run():
     # Capture the image using fswebcam
