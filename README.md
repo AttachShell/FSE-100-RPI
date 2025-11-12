@@ -19,3 +19,8 @@ GND -> GND
 
 Camera:
 CON -> USB
+
+Button:
+VCC -> 3v
+GND -> GND
+OUT -> GPIO 22
