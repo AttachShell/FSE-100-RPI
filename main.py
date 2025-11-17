@@ -13,7 +13,7 @@ SONIC_TRIG = 11
 SONIC_ECHO = 12
 
 # Buzzer
-BUZZ_PIN = 13
+BUZZ_PIN = 18
 
 # Vibration Motor
 VIBRATION_MOTOR = 16
