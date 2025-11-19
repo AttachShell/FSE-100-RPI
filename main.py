@@ -29,14 +29,6 @@ def setup():
     buzzer.buzzer_init(BUZZ_PIN)
     vibration.vibration_motor_init(VIBRATION_MOTOR)
     camera.init(BUTTON_PIN)
-    GPIO.add_event_detect(BUTTON_PIN, GPIO.BOTH, callback=detect, bouncetime=200)
-
-def detect(chn):
-    buzzer.buzzer_on(BUZZ_PIN)
-    sleep(2)
-    buzzer.buzzer_on(BUZZ_PIN)
-    sleep(2)
-    buzzer.buzzer_off(BUZZ_PIN)
 
 # Runtime Loop
 def loop():
