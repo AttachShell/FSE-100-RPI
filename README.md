@@ -10,7 +10,7 @@ VOLTAGE -> 5v
 
 Buzzer:
 VCC -> 3v
-I/O -> GPIO 22
+I/O -> GPIO 24
 GND -> GND
 
 Vibration Motor:
